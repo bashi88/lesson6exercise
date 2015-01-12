@@ -56,21 +56,21 @@ plot(NLCityUTM)
 # Extract raster averages based on the municipality boundaries:
 
 NDVIJanuaryCityMean <- extract(MODISNL$January, NLCityUTM, fun = mean, df = TRUE, factors = FALSE, 
-                                along = FALSE, sp = TRUE)
+                               along = FALSE, sp = TRUE)
 NDVIAugustCityMean <- extract(MODISNL$August, NLCityUTM, fun = mean, df = TRUE, factors = FALSE, 
-                                along = FALSE, sp = TRUE)
+                              along = FALSE, sp = TRUE)
 NDVIYearCityMean <- extract(MODISNLYearavg, NLCityUTM, fun = mean, df = TRUE, factors = FALSE, 
-                                along = FALSE, sp = TRUE)
+                            along = FALSE, sp = TRUE)
 
 
 # Create sp plots and store them for later use:
 
 p1 <- spplot(NDVIJanuaryCityMean, zcol= "January", main = 'NDVI average January Municipalities NL', 
-             col.regions = colorRampPalette(c("#FF7F00","#7FFF00"))(20))
+             col.regions = colorRampPalette(c("#00688B","#E0EEEE", "#8B0A50"))(20))
 p2 <- spplot(NDVIAugustCityMean, zcol= "August", main = 'NDVI average August Municipalities NL', 
-             col.regions = colorRampPalette(c("#FF7F00","#7FFF00"))(20))
+             col.regions = colorRampPalette(c("#00688B","#E0EEEE", "#8B0A50"))(20))
 p3 <- spplot(NDVIYearCityMean, zcol = 'layer', main = 'NDVI average Year Municipalities NL', 
-             col.regions = colorRampPalette(c("#FF7F00","#7FFF00"))(20))
+             col.regions = colorRampPalette(c("#00688B","#E0EEEE", "#8B0A50"))(20))
 
 
 # Plot the sp plots as a single view:
@@ -93,4 +93,3 @@ subset(NDVIAugustCityMean, August == j, select = c(NAME_1, NAME_2, August))
 k <- max(NDVIYearCityMean$layer, na.rm = T)
 subset(NDVIYearCityMean, layer == k, select = c(NAME_1, NAME_2, layer))
 # Greenest Year round city: Zuid-Holland, Graafstroom, 0.8024537
-

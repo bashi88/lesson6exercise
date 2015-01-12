@@ -4,7 +4,6 @@
 # Exercise 5
 
 #function to download and extract specified zip files to the data folder of R projects
-#may need adjustment
 
 ZipFileDownloader <- function(url, filedestination, filename) {
   
